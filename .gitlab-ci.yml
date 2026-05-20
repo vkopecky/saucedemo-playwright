@@ -1,0 +1,221 @@
+# GitLab CI/CD Pipeline for Playwright Testing
+# Structure: 5 parallel test jobs + 1 sequential allure report stage
+# All test jobs run in parallel in the "Tests" stage
+# Worker distribution:
+#   - Job 01 (Independent Tests): 1 worker
+#   - Job 02 (Registered OpenID): 1 worker (registration + tests combined)
+#   - Job 03 (Registered SAML): 1 worker (registration + tests combined)
+#   - Job 04 (Draft OpenID): 1 worker (creation + tests combined)
+#   - Job 05 (Draft SAML): 1 worker (creation + tests combined)
+# Total: 5 parallel workers
+# Note: Each job creates app-fields fixtures used for validation within the same job
+
+stages:
+  - Tests
+  - Allure_report
+
+variables:
+  ALLURE_RESULTS_PATH: "allure-results"
+  PLAYWRIGHT_BROWSERS_PATH: "$CI_PROJECT_DIR/.cache/playwright-browsers"
+
+cache:
+  key: node-playwright-cache
+  paths:
+    - node_modules/
+    - .cache/playwright-browsers/
+
+# ============================================================================
+# TEST JOBS - ALL RUN IN PARALLEL
+# Each job runs all tests for its category (registration/creation + validation)
+# App-fields fixtures are created and used within the same job
+# Response fixtures are generated during test execution (EntraID API calls)
+# ============================================================================
+
+01_Independent:
+  stage: Tests
+  needs: []
+  image: node:20-bullseye
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - allure-results/
+      - playwright-report/
+      - test-results/
+  allow_failure: true
+  script:
+    - export PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH
+    - npm ci
+    - npx playwright install --with-deps
+    - npx playwright test tests/01-Independent-Tests --grep-invert cleanup --project=chromium --workers=1 --reporter=list,html,allure-playwright
+
+02_Registered_OpenID:
+  stage: Tests
+  needs: []
+  image: node:20-bullseye
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - allure-results/
+      - playwright-report/
+      - test-results/
+      - fixtures/app-fields/openid_app_fields.json
+      - fixtures/responses/openID_entraID_response.json
+      - fixtures/responses/openID_main_information_page_response.json
+  allow_failure: true
+  script:
+    - export PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH
+    - npm ci
+    - npx playwright install --with-deps
+    - npx playwright test tests/02-Registered-OpenID --project=chromium --workers=1 --reporter=list,html,allure-playwright
+    - echo "=== Verifying fixture files ==="
+    - ls -la fixtures/app-fields/openid_app_fields.json || echo 'WARNING openid_app_fields.json was not created'
+    - ls -la fixtures/responses/openID_entraID_response.json || echo 'WARNING openID_entraID_response.json was not created'
+    - ls -la fixtures/responses/openID_main_information_page_response.json || echo 'WARNING openID_main_information_page_response.json was not created'
+
+03_Registered_SAML:
+  stage: Tests
+  needs: []
+  image: node:20-bullseye
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - allure-results/
+      - playwright-report/
+      - test-results/
+      - fixtures/app-fields/saml_app_fields.json
+      - fixtures/responses/saml_entraID_response.json
+      - fixtures/responses/saml_main_information_page_response.json
+  allow_failure: true
+  script:
+    - export PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH
+    - npm ci
+    - npx playwright install --with-deps
+    - npx playwright test tests/03-Registered-SAML --project=chromium --workers=1 --reporter=list,html,allure-playwright
+    - echo "=== Verifying fixture files ==="
+    - ls -la fixtures/app-fields/saml_app_fields.json || echo 'WARNING saml_app_fields.json was not created'
+    - ls -la fixtures/responses/saml_entraID_response.json || echo 'WARNING saml_entraID_response.json was not created'
+    - ls -la fixtures/responses/saml_main_information_page_response.json || echo 'WARNING saml_main_information_page_response.json was not created'
+
+04_Draft_OpenID:
+  stage: Tests
+  needs: []
+  image: node:20-bullseye
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - allure-results/
+      - playwright-report/
+      - test-results/
+      - fixtures/app-fields/draft_openid_app_fields.json
+  allow_failure: true
+  script:
+    - export PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH
+    - npm ci
+    - npx playwright install --with-deps
+    - npx playwright test tests/04-Draft-OpenID --project=chromium --workers=1 --reporter=list,html,allure-playwright
+    - echo "=== Verifying fixture files ==="
+    - ls -la fixtures/app-fields/draft_openid_app_fields.json || echo 'WARNING draft_openid_app_fields.json was not created'
+
+05_Draft_SAML:
+  stage: Tests
+  needs: []
+  image: node:20-bullseye
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - allure-results/
+      - playwright-report/
+      - test-results/
+      - fixtures/app-fields/draft_saml_app_fields.json
+  allow_failure: true
+  script:
+    - export PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH
+    - npm ci
+    - npx playwright install --with-deps
+    - npx playwright test tests/05-Draft-SAML --project=chromium --workers=1 --reporter=list,html,allure-playwright
+    - echo "=== Verifying fixture files ==="
+    - ls -la fixtures/app-fields/draft_saml_app_fields.json || echo 'WARNING draft_saml_app_fields.json was not created'
+
+# ============================================================================
+# ALLURE REPORT STAGE - RUNS AFTER ALL TEST JOBS COMPLETE
+# Generates unified report from all 5 parallel test jobs
+# Collects allure-results from all jobs and combines them into one report
+# ============================================================================
+
+Generate_Allure_Report:
+  stage: Allure_report
+  image: frankescobar/allure-docker-service:latest
+  dependencies:
+    - 01_Independent
+    - 02_Registered_OpenID
+    - 03_Registered_SAML
+    - 04_Draft_OpenID
+    - 05_Draft_SAML
+  needs:
+    - 01_Independent
+    - 02_Registered_OpenID
+    - 03_Registered_SAML
+    - 04_Draft_OpenID
+    - 05_Draft_SAML
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - allure-report/
+    exclude:
+      - allure-report/**/trace/**
+      - allure-report/**/*.webm
+      - allure-report/**/*.mp4
+  script:
+    - set +e
+    - mkdir -p unified-allure-results
+    - echo "=== COLLECTING ALLURE RESULTS FROM ALL 5 TEST JOBS ==="
+    - |
+      find . -name "allure-results" -type d | while read dir; do
+        echo "Copying results from $dir..."
+        find "$dir" -type f | while read file; do
+          cp "$file" "unified-allure-results/" 2>/dev/null
+        done
+      done || true
+
+    - echo "=== COPYING SCREENSHOTS AND ATTACHMENTS ==="
+    - mkdir -p unified-allure-results/attachments
+    - |
+      find . -name "test-results" -type d | while read testdir; do
+        find "$testdir" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | while read file; do
+          base=$(basename "$file")
+          cp "$file" "unified-allure-results/attachments/${base}" 2>/dev/null
+        done
+      done || true
+
+    - echo "=== VERIFYING COLLECTED DATA ==="
+    - result_count=$(find unified-allure-results/ -name "*.json" 2>/dev/null | wc -l)
+    - attachment_count=$(find unified-allure-results/attachments/ -type f 2>/dev/null | wc -l)
+    - echo "Total allure result files found - $result_count"
+    - echo "Total attachment files found - $attachment_count"
+
+    - echo "=== GENERATING UNIFIED ALLURE REPORT ==="
+    - |
+      if [ "$result_count" -gt 0 ]; then
+        echo "Generating unified Allure report from all parallel jobs..."
+        allure generate unified-allure-results --clean -o allure-report || {
+          echo "ERROR - Allure generation failed"
+          mkdir -p allure-report
+          echo "<h1>Allure Generation Failed</h1><p>Found $result_count result files but generation failed</p>" > allure-report/index.html
+        }
+      else
+        echo "WARNING - No test results found"
+        mkdir -p allure-report
+        echo "<h1>No Test Results Found</h1><p>All test jobs must complete before report generation</p>" > allure-report/index.html
+      fi
+
+    - echo "=== UNIFIED REPORT SIZE ==="
+    - du -sh allure-report/ 2>/dev/null || echo "Report directory not found"
+    - echo "=== REPORT GENERATION COMPLETE ==="
+    - exit 0
+  allow_failure: true
