@@ -1,0 +1,107 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
+  "id": "22efc2d3-154e-4c37-9317-71e9532f2552",
+  "deletedDateTime": null,
+  "appId": "35fc7dbc-d226-4131-a917-ae25744bba63",
+  "applicationTemplateId": "8adf8e6e-67b2-4cf2-a259-e3dc5476c621",
+  "disabledByMicrosoftStatus": null,
+  "createdDateTime": "2026-02-13T12:15:10Z",
+  "displayName": "PW/Registered/SAML/13.02.2026/13:14:52",
+  "description": "Simple description short",
+  "groupMembershipClaims": null,
+  "identifierUris": [],
+  "isDeviceOnlyAuthSupported": null,
+  "isFallbackPublicClient": false,
+  "nativeAuthenticationApisEnabled": null,
+  "notes": null,
+  "publisherDomain": "TESTTESTDTAGMCSTEST11.onmicrosoft.com",
+  "serviceManagementReference": "T-PLA-5971387382",
+  "signInAudience": "AzureADMyOrg",
+  "tags": [],
+  "tokenEncryptionKeyId": null,
+  "uniqueName": null,
+  "samlMetadataUrl": null,
+  "defaultRedirectUri": null,
+  "certification": null,
+  "optionalClaims": null,
+  "servicePrincipalLockConfiguration": null,
+  "requestSignatureVerification": null,
+  "addIns": [],
+  "api": {
+    "acceptMappedClaims": null,
+    "knownClientApplications": [],
+    "requestedAccessTokenVersion": null,
+    "oauth2PermissionScopes": [
+      {
+        "adminConsentDescription": "Allow the application to access PW/Registered/SAML/13.02.2026/13:14:52 on behalf of the signed-in user.",
+        "adminConsentDisplayName": "Access PW/Registered/SAML/13.02.2026/13:14:52",
+        "id": "79c6bc7f-4dc5-4438-96dc-6bbc727d76d4",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to access PW/Registered/SAML/13.02.2026/13:14:52 on your behalf.",
+        "userConsentDisplayName": "Access PW/Registered/SAML/13.02.2026/13:14:52",
+        "value": "user_impersonation"
+      }
+    ],
+    "preAuthorizedApplications": []
+  },
+  "appRoles": [
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "description": "User",
+      "displayName": "User",
+      "id": "18d14569-c3bd-439b-9a66-3a2aee01d14f",
+      "isEnabled": true,
+      "origin": "Application",
+      "value": null
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "description": "msiam_access",
+      "displayName": "msiam_access",
+      "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+      "isEnabled": true,
+      "origin": "Application",
+      "value": null
+    }
+  ],
+  "info": {
+    "logoUrl": null,
+    "marketingUrl": null,
+    "privacyStatementUrl": null,
+    "supportUrl": null,
+    "termsOfServiceUrl": null
+  },
+  "keyCredentials": [],
+  "parentalControlSettings": {
+    "countriesBlockedForMinors": [],
+    "legalAgeGroupRule": "Allow"
+  },
+  "passwordCredentials": [],
+  "publicClient": {
+    "redirectUris": []
+  },
+  "requiredResourceAccess": [],
+  "verifiedPublisher": {
+    "displayName": null,
+    "verifiedPublisherId": null,
+    "addedDateTime": null
+  },
+  "web": {
+    "homePageUrl": "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z",
+    "logoutUrl": null,
+    "redirectUris": [],
+    "implicitGrantSettings": {
+      "enableAccessTokenIssuance": false,
+      "enableIdTokenIssuance": true
+    },
+    "redirectUriSettings": []
+  },
+  "spa": {
+    "redirectUris": []
+  }
+}

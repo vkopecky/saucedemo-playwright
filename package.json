@@ -1,0 +1,35 @@
+{
+  "type": "commonjs",
+  "dependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@faker-js/faker": "^10.2.0",
+    "dotenv": "^17.2.3",
+    "regme_tests": "file:",
+    "tacbookstore": "file:"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59",
+    "@types/node": "^25.0.6",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.4"
+  },
+  "scripts": {
+    "saucedemo":        "playwright test",
+    "saucedemo:ui":     "playwright test --ui",
+    "saucedemo:headed": "playwright test --project=chromium --headed",
+    "saucedemo:report": "playwright show-report playwright-report/saucedemo",
+    "saucedemo:allure": "allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "api":              "set NODE_OPTIONS=--dns-result-order=ipv4first && playwright test --config=playwright.api.config.cjs",
+    "api:report":       "playwright show-report playwright-report/api",
+    "api:allure":       "allure generate allure-results -o allure-report --clean && allure open allure-report"
+  },
+  "name": "regme_tests",
+  "description": "Inside that directory, you can run several commands:",
+  "version": "1.0.0",
+  "main": "playwright.config.cjs",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "vkopecky",
+  "license": "ISC"
+}

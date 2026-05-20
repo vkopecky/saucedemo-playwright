@@ -1,0 +1,17 @@
+{
+  "application_name": "Anzeigename die Anwendung, der lokal vom RegMe verwendet wird.",
+  "single_sign_on": "SAML und OIDC erleichtern die Authentifizierung und Autorisierung. SAML konzentriert sich mehr auf SSO über verschiedene Systeme hinweg unter Verwendung von XML-Tokens, während OIDC sich auf Authentifizierung und Identitätsüberprüfung konzentriert und häufig JSON-Web-Tokens in einem moderneren und flexibleren Ansatz verwendet.",
+  "psi_api_token": " Der Zugriff auf Systeme in der PSI unterliegt einer API-seitigen Berechtigungsprüfung. Die Berechtigung des Zugriffs wird durch ein Zugriffstoken nachgewiesen. Bitte befolgen Sie diese Anweisungen  , um das API-Token im PSI-System zu generieren. Kopieren Sie das API-Token aus PSI, und fügen Sie es hier ein. ",
+  "psi_system_number": "Lesbare Kennung des Systems in PSI.",
+  "psa_reference_number": "Die PSA-Referenznummer wird während des PSA-Prozesslebenszyklus vergeben. Für jedes System-Release wird in PSI eine neue PSA-Referenznummer vergeben.",
+  "t.eam_reference_number": " Die Referenznummer ist eine eindeutige Identifikationsnummer für eine Anwendung oder ein IT-System. Die folgenden Referenznummerntypen sind gültig: 1) CAPE-basiert: ICTO, COM, SPL und 2) T.EAM-basiert: T-APP, T-ITCOMP, T-GOV, T-PLA. ",
+  "appid": "AppID ist eine von CAPE zugewiesene eindeutige Kennung, zum Beispiel: APP-12345",
+  "application_user_base": "Dieses Feld bestimmt die Benutzerbasis der Anwendung und zeigt an, ob personenbezogene Daten von in Deutschland ansässigen Mitarbeitern verarbeitet werden. Darüber hinaus werden die Compliance-Regeln und -Standards beschrieben, die sowohl für deutsche als auch für internationale Nutzergruppen eingehalten werden müssen.",
+  "kbr_jira_br_number": "Dieses Feld ist für Testzwecke nicht relevant, verwenden Sie eine Dummy-Nummer. Die Jira@BR-Referenznummer wird vom Jira@BR-Tool zugewiesen. Das Tool Jira@BR dient der Dokumentation von Anforderungen an IT-Systeme und der Erfassung notwendiger Maßnahmen im Einklang mit den zugrunde liegenden KBV-IT-Systemen und unterstützt die internen Prozesse des KBR (Betriebsrats).",
+  "environment_name": "Die Umgebung, in der die Anwendung registriert ist.",
+  "declaration": "Erklärung des Anwendungsmanagers, dass er die DEV/TEST-Umgebung nicht über RegMe mit dem Entra ID-Produkt verbindet.",
+  "application_hardening": "Sicherheitsempfehlungen für die Anmeldeeinstellungen Ihrer Anwendung. Bitte wählen Sie die Option Single Sign On für weitere Details.",
+  "owner": "Die für die Anwendung hauptverantwortliche Person.",
+  "delegates": "Zusätzliche Benutzer, die die Anwendung warten können.",
+  "description": "Weitere Informationen zur Anwendung."
+}

@@ -1,0 +1,28 @@
+node_modules/
+/test-results/
+/playwright-report/
+/allure-results/
+/allure-report/
+/playwright/.cache/
+/socksplaywright.config.js
+/.idea/
+/login-credentials.json
+support/login-sessions/user-session.json
+support/login-sessions/delegate-session.json
+support/login-sessions/admin-session.json
+support/login-sessions/saucedemo-standard-user.json
+TEST-login-credentials.json
+SIT-login-credentials.json
+.vscode/mcp.json
+aiTcs/importcsv.csv
+aiTcs/Story.txt
+fixtures/app-fields/openid_app_fields.json
+tests/seed.spec.ts
+fixtures/responses/openID_main_information_page_response.json
+# Local environment secrets – never commit
+.env
+# Playwright MCP temporary files
+.playwright-mcp/
+# Screenshots generated during development
+*.png
+*.jpeg

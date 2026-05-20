@@ -1,0 +1,136 @@
+{
+  "registerApp": {
+    "PW_Test_Registered_": "PW_Test_Registered_",
+    "PW_Test_Draft_": "PW_Test_Draft_",
+    "PW_Test_Platform_Configurations_": "PW_Test_Platform_Configurations_",
+    "PW_Test_Claim_Dialog_": "PW_Test_Claim_Dialog_",
+    "PW_Test_Secret_ValueId_": "PW_Test_Secret_ValueId_",
+    "PW_Test_Registered_OpenID": "PW_Test_OpenID",
+    "PW_Test_Registered_SAML": "PW_Test_SAML",
+    "PW": "PW ",
+    "PW_Test_Admin": "PW_Test_Admin",
+    "sso_openid": "OpenID",
+    "sso_saml": "saml",
+    "appName": [
+      "PW_Test_Registered_",
+      "PW_Test_Draft_",
+      "PW_Test_Platform_Configurations_",
+      "PW_Test_Claim_Dialog_",
+      "PW_Test_Secret_ValueId_",
+      "PW_Test_Registered_OpenID",
+      "PW_Test_Registered_SAML",
+      "PW_Test_"
+    ],
+    "sso": ["OpenID", "SAML"],
+    "envNames": [
+      "LOCAL-TEST",
+      "Test-Environment",
+      "Test-Environment-Without-test-account"
+    ],
+    "refNumber": ["ICTO", "COM", "SPL"],
+    "typeRefNr": ["14370", "159", "3210", "555", "585"],
+    "appId": ["APP-1234", "BRE-852", "AAA-1235", "WSA-963"],
+    "kbrNumber": "XXX-00000",
+    "psaNumber": "SYS00000000",
+    "owner": ["Novakova, Lenka (Admin)", "Panczak, Agnes (Admin)"],
+    "delegate": ["Lenka Test","cypress_automated_tests_delegate"],
+    "admin": "Novakova, Lenka (Admin)",
+    "editDelegate": "Novakova, Lenka (Admin)",
+    "description": ["Simple description short", "Simple SAML description short"]
+  },
+  "broker_name": [
+    "Sirius Broker test 1",
+    "Sirius Broker test 1 - edited",
+    "Sirius Broker test 3",
+    "Sirius Broker test 2",
+    "Sirius Broker test 5"
+  ],
+  "broker_ObjectID": ["47a22a34-3120-4f2e-b585-f3fce76bf85d"],
+  "brokerDescription": [
+    "Sirius Broker test description 1",
+    "Sirius Broker test description 1 - edited",
+    "Sirius Broker test description 2",
+    "Sirius Broker test description 3",
+    "Sirius Broker description 5",
+    "Updated Sirius Broker description 2",
+    "Updated Sirius Broker description 5"
+  ],
+  "standardSecurityGroups" : {
+    "CAIMAN-CollabNetwork_Internal" : ["AG-CAIMAN-CollabNetwork_Internal_Users", "CollabNetwork Internal Users", "32ac00b8-8bdd-485c-9036-c0d6ecdabb96", "Contains all Collaboration Network internal users"],
+    "CAIMAN-LightAccessService": ["AG-CAIMAN-LightAccessService_Users", "LightAccessService Users", "662806ba-65ad-4c47-acf8-7bfc796754c4", "Contains all Light Access Service users"],
+    "CAIMAN-EMEA1_Internal": ["AG-CAIMAN-EMEA1_Internal_Users", "EMEA1 Internal Users", "951e912e-afc9-4c5e-a336-d5db8d892312", "Contains all EMEA1 internal users"],
+    "CAIMAN-EMEA2_Internal": ["AG-CAIMAN-EMEA2_Internal_Users", "EMEA2 Internal Users", "9a604ef7-6d61-4c05-afcb-601523cb1096", "Contains all EMEA2 internal users"],
+    "CAIMAN-EMEA1_External": ["AG-CAIMAN-EMEA1_External_Users", "EMEA1 External Users", "fabd4602-d4c0-491d-89d0-515d93f3926a", "Contains all EMEA1 external users"],
+    "CAIMAN-EMEA2_External": ["AG-CAIMAN-EMEA2_External_Users", "EMEA2 External Users", "14051000-bd10-48bd-90bb-99fe0705fe4b", "Contains all EMEA2 external users"]
+  },
+  "securityGroups_test": {
+    "Playwright_Test": ["Playwright-Test", "Playwright-Test", "28511000-bd10-48bd-90bb-99fe0705fe4b", "Playwright-Test"]
+  },
+  "standardSecurityGroupNames": ["AG-CAIMAN-CollabNetwork_Internal_Users", "AG-CAIMAN-LightAccessService_Users",
+    "AG-CAIMAN-EMEA1_Internal_Users", "AG-CAIMAN-EMEA2_Internal_Users", "AG-CAIMAN-EMEA1_External_Users", "AG-CAIMAN-EMEA2_External_Users", "Playwright-Test"],
+  "standardSecurityDisplayNames": ["CollabNetwork Internal Users", "LightAccessService Users",
+    "EMEA1 Internal Users", "EMEA2 Internal Users", "EMEA1 External Users", "EMEA2 External Users", "Playwright-Test"],
+  "objectIds": ["32ac00b8-8bdd-485c-9036-c0d6ecdabb96", "662806ba-65ad-4c47-acf8-7bfc796754c4", "951e912e-afc9-4c5e-a336-d5db8d892312",
+    "9a604ef7-6d61-4c05-afcb-601523cb1096", "fabd4602-d4c0-491d-89d0-515d93f3926a", "14051000-bd10-48bd-90bb-99fe0705fe4b", "28511000-bd10-48bd-90bb-99fe0705fe4b"],
+  "standardSecurityGroupDescriptions": ["Contains all Collaboration Network internal users", "Contains all Light Access Service users",
+    "Contains all EMEA1 internal users", "Contains all EMEA2 internal users", "Contains all EMEA1 external users", "Contains all EMEA2 external users", "Playwright-Test"],
+  "informationTexts":["Display name of the group.", "Display name of the group.", "Unique object ID of the group in Entra ID.",
+    "Description of the group.", "Should fail"],
+  "url": [
+    "https://test.pl",
+    "https://test2/homePage.sk",
+    "https://test/redirectPage.sk",
+    "https://edit/homepage.de",
+    "https://test/logout.de"
+  ],
+  "permission": {
+    "permissionName": [
+      "Permission",
+      "PlayWright_Permission.1*",
+      "PlayWright__Permission.1",
+      "Permission",
+      "PlayWright_Permission",
+      "PlayWright_02Permission",
+      "PW_03Permission",
+      "PlayWright_04Permission",
+      "PlayWright_05",
+      "EditedPermission",
+      "PermissionHasBeenEdited",
+      "PlayWright_Permission.1"
+    ]
+  },
+  "rolesValues": {
+    "name": [
+      "01RoleTest",
+      "02RoleTest",
+      "03RoleTest",
+      "04RoleTest",
+      "Edit-Role-PlayWright",
+      "RolePlayWright"
+    ]
+  },
+  "testAccountsNumber": ["1", "200"],
+  "testAccountsPassword": "Monday123*",
+
+  "TestAccountsValues": {
+    "firstName": "playwrightName",
+    "lastName": "playwrightSurname",
+    "emailPrefix": "playwrighttest+",
+    "emailDomain": "@test.sk",
+    "employeeId": "1234567890",
+    "twrid": "9876543210",
+    "wiwid": "5555555555",
+    "city": "Bratislava",
+    "country": "Slovakia",
+    "phone": "00421123456789",
+    "company": "PlaywrightTestCompany",
+    "department": "PlaywrightTestDepartment",
+    "jobTitle": "PlaywrightTestJobTitle"
+
+  },
+
+
+  "tardis": {
+    "name": "a4u--a4u-ft--self-service-dev"
+  }
+}

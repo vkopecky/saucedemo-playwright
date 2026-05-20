@@ -1,0 +1,95 @@
+{
+  "id": "6d452242-8a6d-4155-b211-57e38538c942",
+  "name": "PW/Registered/SAML/13.02.2026/13:14:52",
+  "teamRefNumber": "T-PLA-5971387382",
+  "subRefNumber": null,
+  "description": "Simple description short",
+  "isSaml": true,
+  "samlSettings": {
+    "basicSamlConfiguration": null,
+    "samlCertificateVerifyKeys": [
+      {
+        "keyId": "c1277196-e33c-4f27-9995-32bff80c36b8",
+        "endDate": 1865635200000,
+        "thumbprint": "5DF32319DE132C4A975D6F1967EC71B986D1FFBF",
+        "active": true
+      }
+    ]
+  },
+  "identifierUri": null,
+  "status": "REGISTERED",
+  "ownerId": "6d5b99f3-2247-42f4-a8f4-898260683c88",
+  "appHardening": true,
+  "tardisClientId": null,
+  "caimanAppGovernanceUid": "c256451f-63bf-400a-aff8-a9dc5212e319",
+  "createdDate": 1770984909506,
+  "updatedDate": 1770985081780,
+  "enabledGCPProvisioning": false,
+  "declarationOfNotConnectingToTestEnvironments": true,
+  "appRoleAssignmentRequired": null,
+  "claims": {
+    "groupMembershipClaim": "APPLICATION_GROUP",
+    "optionalClaims": null,
+    "claimsMappingsPolicy": {
+      "id": null,
+      "version": 1,
+      "includeBasicClaimSet": true,
+      "schemas": [
+        {
+          "attribute": "userprincipalname [nameid-format:emailAddress]",
+          "source": "user",
+          "samlClaimType": "Unique User Identifier (Name ID)",
+          "jwtClaimType": "userprincipalname",
+          "enabled": true
+        },
+        {
+          "attribute": "emailaddress",
+          "source": "user",
+          "samlClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+          "jwtClaimType": "emailaddress",
+          "enabled": true
+        },
+        {
+          "attribute": "givenname",
+          "source": "user",
+          "samlClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+          "jwtClaimType": "givenname",
+          "enabled": true
+        },
+        {
+          "attribute": "userprincipalname",
+          "source": "user",
+          "samlClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+          "jwtClaimType": "userprincipalname",
+          "enabled": true
+        },
+        {
+          "attribute": "surname",
+          "source": "user",
+          "samlClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+          "jwtClaimType": "surname",
+          "enabled": true
+        }
+      ]
+    }
+  },
+  "notificationPreferences": {
+    "notifyAboutApplicationDrafts": true,
+    "applicationNotification": true,
+    "permissionsNotification": true,
+    "rolesNotification": true,
+    "testAccountsNotification": true,
+    "notifyOwner": true
+  },
+  "customSecurityAttributes": [],
+  "psaReferenceNumber": "SYS947782848",
+  "psiSystemNumber": "PSI-850147",
+  "psiApiTokenMasked": "25965f42***",
+  "approvalDate": null,
+  "kbr": null,
+  "internationalDeclaration": true,
+  "aadappId": "35fc7dbc-d226-4131-a917-ae25744bba63",
+  "aadid": "22efc2d3-154e-4c37-9317-71e9532f2552",
+  "caimanApplicationName": "PW/Registered/SAML/13.02.2026/13:14:52",
+  "aadservicePrincipalId": "96dc1fb7-a19a-443c-8b9c-84eb646d932f"
+}

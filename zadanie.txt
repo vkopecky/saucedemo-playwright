@@ -1,0 +1,41 @@
+Technical task #2
+API test automation
+Instructions
+• Design and implement 2 key scenarios for REST API.
+• Below, you will find test cases GET - List Users and Post - Create an user. Your
+objective is to showcase your automation skills by constructing valid requests,
+validating responses, and implementing essential testing practices.
+• Ensure that you can run your test from command line to demonstrate to the
+interview that tests work.
+• Results should be published using Github and containing all required information
+to be able to run it locally.
+• Tech stack: Use a framework of your choice (e.g. Selenium, Cypress...)
+• Share your solution with us via email jobs@moxymind.eu
+• Throughout the task, you may encounter tasks marked with this icon. These
+additional tasks are optional but completing them will be wieved as a positive
+contribution, although it is not mandatory.
+• When faced with a challenging task, feel free to provide a partial solution if you're
+unsure.
+• Good luck, we look forward to seeing your automated solutions!
+System under test (SUT)
+• https://reqres.in/
+Quality Assurance and Testing Services, s.r.o. Company ID: 4799496, VAT: SK 2024171127
+www.moxymind.eu, hello@moxymind.eu
+Test Case 1 – GET - List Users
+• Send a proper Request.
+• Assert received data in Response:
+o “total”
+o “last_name” for the first and for the second User in “data”
+• Count number of received users in “data” and compare it to the received value
+“total”.
+• Optional bonus task: Create assertions for possible data types present in
+the response.
+Quality Assurance and Testing Services, s.r.o. Company ID: 4799496, VAT: SK 2024171127
+www.moxymind.eu, hello@moxymind.eu
+Test Case 2 – POST – Create
+• Send proper request.
+• In received Response assert:
+o HTTP code
+o ID and timestamp of createdAt
+• Make the test data driven. Use external source of data.
+• Assert whether Response time was less than a variable (e.g. limit = 100 ms)

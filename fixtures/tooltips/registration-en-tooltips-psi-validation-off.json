@@ -1,0 +1,17 @@
+{
+  "application_name": "Display name of the application that is used locally by RegMe application.",
+  "single_sign_on": "SAML and OIDC facilitate authentication and authorization. SAML is more focused on SSO across different systems using XML tokens, while OIDC is focused on authentication and identity verification, often using JSON Web Tokens in a more modern and flexible approach.",
+  "psi_api_token": "This field is relevant only for RegMe Production instance. You can use dummy number.",
+  "psi_system_number": "Human readable identifier of the system in PSI. This field is not relevant for testing purposes, use dummy number.",
+  "psa_reference_number": "The PSA reference number is assigned during the PSA process lifecycle. For each system release, a new PSA reference number is assigned in PSI. This field is not relevant for testing purposes, use dummy number.",
+  "t.eam_reference_number": "The reference number is a unique identification number for an application or IT system. The following reference number types are valid: 1) CAPE based: ICTO, COM, SPL and T.EAM based: T-APP, T-ITCOMP, T-GOV, T-PLA. This field is not relevant for testing purposes, use dummy number.",
+  "appid": "AppID is a unique identifier assigned by CAPE, for example: APP-12345",
+  "application_user_base": "This field specifies the application's user base, indicating whether the personal data of Germany based employees is processed. Additionally, it outlines the compliance rules and standards that must be adhered for both German and international user groups.",
+  "kbr_jira_br_number": "This field is not relevant for testing purposes, use dummy number. The Jira@BR reference number is assigned by Jira@BR tool. The Jira@BR tool is used to document requirements for IT systems and records necessary actions in line with the underlying KBV IT systems and aids in the internal processes of the KBR (Works Council).",
+  "environment_name": "The environment on which the application is registered.",
+  "declaration": "Declaration of application manager that he is not connecting DEV/TEST environment via RegMe to Entra ID prod.",
+  "application_hardening": "Security recommendations for your application's sign on settings. Please select Single Sign On option for further details.",
+  "owner": "The person primarily responsible for the application.",
+  "delegates": "Additional users that can maintain the application.",
+  "description": "Additional information regarding the application."
+}
